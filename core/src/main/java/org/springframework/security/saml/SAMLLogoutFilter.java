@@ -19,6 +19,8 @@ import org.opensaml.common.SAMLException;
 import org.opensaml.common.SAMLRuntimeException;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.ws.message.encoder.MessageEncodingException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -52,6 +54,8 @@ import java.io.IOException;
  * @author Vladimir Schäfer
  */
 public class SAMLLogoutFilter extends LogoutFilter {
+
+    private final static Logger logger = LoggerFactory.getLogger(SAMLLogoutFilter.class);
 
     protected SingleLogoutProfile profile;
     protected SAMLLogger samlLogger;

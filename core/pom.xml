@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.springframework.security.extensions</groupId>
   <artifactId>spring-security-saml2-core</artifactId>
@@ -117,6 +118,12 @@
       </exclusions>
     </dependency>
     <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
       <version>2.5</version>
@@ -157,12 +164,6 @@
       <artifactId>spring-test</artifactId>
       <version>3.1.2.RELEASE</version>
       <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>commons-logging</artifactId>
-          <groupId>commons-logging</groupId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
       <groupId>xmlunit</groupId>
@@ -171,4 +172,25 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <build>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-webdav</artifactId>
+        <version>1.0-beta-2</version>
+      </extension>
+    </extensions>
+  </build>
+  <distributionManagement>
+    <repository>
+      <id>openconext-releases</id>
+      <name>OpenConext public releases repository</name>
+      <url>dav:https://build.surfconext.nl/repository/public/releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>openconext-snapshots</id>
+      <name>OpenConext public snapshot repository</name>
+      <url>dav:https://build.surfconext.nl/repository/public/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
